@@ -1,8 +1,8 @@
 import WIP from "./pages/wip.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import SignUp from "./pages/SignUp.jsx";
-import LogIn from "./pages/LogIn.jsx";
+import SignUp from "./pages/Signup.jsx";
+import LogIn from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 
 function App() {
