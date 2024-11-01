@@ -1,9 +1,23 @@
+import WIP from "./pages/wip.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import SignUp from "./pages/SignUp.jsx";
+import LogIn from "./pages/LogIn.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+
 function App() {
-  return (
-    <>
-      <h1>Invoice Frontend</h1>
-    </>
+  const routes = (
+    <Router>
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/signup" exact element={<SignUp />} />
+        <Route path="/login" exact element={<LogIn />} />
+        <Route path="/dashboard" exact element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
+
+  return import.meta.env.VITE_WIP === "true" ? <WIP /> : <div>{routes}</div>;
 }
 
 export default App;
