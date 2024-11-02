@@ -1,4 +1,30 @@
+import { useState } from "react";
+import { axiosInstance } from "../utils/axiosInstance";
+
 const AddInvoice = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [amount, setAmount] = useState("");
+
+  const handleCreateInvoice = async (e) => {
+    e.preventDefault();
+    if (!name || !email || !amount) {
+      alert("All fields are required");
+    }
+
+    const response = await axiosInstance.post("/api/invoice/create-invoice", {
+      name,
+      email,
+      amount,
+    });
+    if (response.data.success) {
+      alert("Invoice created successfully");
+    }
+    setName("");
+    setEmail("");
+    setAmount("");
+  };
+
   return (
     <div>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
@@ -13,7 +39,7 @@ const AddInvoice = () => {
           <h3 className="font-bold text-lg text-center">
             Create a New Invoice
           </h3>
-          <form>
+          <form onSubmit={handleCreateInvoice}>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Customer</span>
@@ -22,6 +48,8 @@ const AddInvoice = () => {
                 type="text"
                 placeholder="Customer"
                 className="input input-bordered"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
               />
             </div>
             <div className="form-control">
@@ -32,6 +60,8 @@ const AddInvoice = () => {
                 type="email"
                 placeholder="Email"
                 className="input input-bordered"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
             </div>
             <div className="form-control">
@@ -42,6 +72,8 @@ const AddInvoice = () => {
                 type="number"
                 placeholder="Amount"
                 className="input input-bordered"
+                onChange={(e) => setAmount(e.target.value)}
+                value={amount}
               />
             </div>
             <div className="form-control mt-6">
