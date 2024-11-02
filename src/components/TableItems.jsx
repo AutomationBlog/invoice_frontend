@@ -1,4 +1,6 @@
-const TableItems = () => {
+import PropTypes from "prop-types";
+
+const TableItems = ({ invoices }) => {
   return (
     <div id="invoice-items" className="overflow-x-auto pt-5">
       <table id="invoice-table" className="table">
@@ -9,16 +11,20 @@ const TableItems = () => {
             <th>Email</th>
             <th>Status</th>
             <th>Value</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>01/01/2022</td>
-            <td>John</td>
-            <td>john@gmail.com</td>
-            <td>Paid</td>
-            <td>$100</td>
-          </tr>
+          {invoices.map((invoice) => (
+            <tr key={invoice.id}>
+              <td>{new Date(invoice.createdAt).toDateString()}</td>
+              <td>{invoice.name}</td>
+              <td>{invoice.email}</td>
+              <td>{invoice.status}</td>
+              <td>{invoice.amount}</td>
+              <td>Action</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
@@ -26,3 +32,7 @@ const TableItems = () => {
 };
 
 export default TableItems;
+
+TableItems.propsType = {
+  invoices: PropTypes.array.isRequired,
+};

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { axiosInstance } from "../utils/axiosInstance";
+import PropTypes from "prop-types";
 
-const AddInvoice = () => {
+const AddInvoice = ({ setIsInvoiced }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [amount, setAmount] = useState("");
@@ -19,6 +20,8 @@ const AddInvoice = () => {
     });
     if (response.data.success) {
       alert("Invoice created successfully");
+      setIsInvoiced(true);
+      document.getElementById("my_modal_5").close();
     }
     setName("");
     setEmail("");
@@ -95,3 +98,7 @@ const AddInvoice = () => {
 };
 
 export default AddInvoice;
+
+AddInvoice.propsType = {
+  setIsInvoiced: PropTypes.func.isRequired,
+};
