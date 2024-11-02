@@ -28,7 +28,7 @@ function App() {
         exact
         element={
           <AuthenticatedUser>
-            <Home />
+            <Home value={authUser()} />
           </AuthenticatedUser>
         }
       />
@@ -55,7 +55,7 @@ function App() {
         exact
         element={
           <ProtectedRoute>
-            <Dashboard />
+            <Dashboard value={authUser()} />
           </ProtectedRoute>
         }
       />

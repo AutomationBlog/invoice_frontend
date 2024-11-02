@@ -4,7 +4,7 @@ import TableItems from "../components/TableItems";
 import { axiosInstance } from "../utils/axiosInstance";
 import Navbar from "../components/Navbar";
 
-const Dashboard = () => {
+const Dashboard = ({ value }) => {
   const [isInvoiced, setIsInvoiced] = useState(false);
 
   const [invoices, setInvoices] = useState([]);
@@ -26,7 +26,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar value={value} />
       <div
         id="dashboard-container"
         className="container mx-auto my-10 h-auto w-auto"
