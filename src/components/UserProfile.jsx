@@ -1,4 +1,9 @@
+import profileIcon from "../assets/profile-icon.png";
 const UserProfile = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/";
+  };
   return (
     <div>
       <div className="dropdown dropdown-end">
@@ -8,10 +13,7 @@ const UserProfile = () => {
           className="btn btn-ghost btn-circle avatar"
         >
           <div className="w-10 rounded-full">
-            <img
-              alt="Tailwind CSS Navbar component"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-            />
+            <img alt="Tailwind CSS Navbar component" src={profileIcon} />
           </div>
         </div>
         <ul
@@ -28,7 +30,7 @@ const UserProfile = () => {
             <a>Settings</a>
           </li>
           <li>
-            <a>Logout</a>
+            <a onClick={handleLogout}>Logout</a>
           </li>
         </ul>
       </div>

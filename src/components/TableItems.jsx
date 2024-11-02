@@ -16,7 +16,7 @@ const TableItems = ({ invoices }) => {
         </thead>
         <tbody>
           {invoices.map((invoice) => (
-            <tr key={invoice.id}>
+            <tr key={invoice.invoiceId}>
               <td>{new Date(invoice.createdAt).toDateString()}</td>
               <td>{invoice.name}</td>
               <td>{invoice.email}</td>
