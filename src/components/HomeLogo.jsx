@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/invoice-now-logo.png";
+import logo from "../assets/logo.png";
 const HomeLogo = () => {
   return (
     <div className="flex-1">
