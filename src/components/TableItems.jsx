@@ -33,6 +33,6 @@ const TableItems = ({ invoices }) => {
 
 export default TableItems;
 
-TableItems.propsType = {
+TableItems.propTypes = {
   invoices: PropTypes.array.isRequired,
 };

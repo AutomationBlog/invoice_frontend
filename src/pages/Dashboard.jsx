@@ -3,6 +3,7 @@ import AddInvoice from "../components/AddInvoice";
 import TableItems from "../components/TableItems";
 import { axiosInstance } from "../utils/axiosInstance";
 import Navbar from "../components/Navbar";
+import PropTypes from "prop-types";
 
 const Dashboard = ({ value }) => {
   const [isInvoiced, setIsInvoiced] = useState(false);
@@ -53,3 +54,7 @@ const Dashboard = ({ value }) => {
 };
 
 export default Dashboard;
+
+Dashboard.propTypes = {
+  value: PropTypes.string.isRequired,
+};
