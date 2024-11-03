@@ -62,7 +62,7 @@ const Signup = () => {
               </div>
               <div className="form-control pt-5">
                 <input
-                  type="text"
+                  type="password"
                   placeholder="password"
                   className="input input-bordered"
                   value={password}
