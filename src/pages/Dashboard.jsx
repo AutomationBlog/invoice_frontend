@@ -56,5 +56,5 @@ const Dashboard = ({ value }) => {
 export default Dashboard;
 
 Dashboard.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.boolean,
 };

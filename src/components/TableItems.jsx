@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import ActionItems from "./ActionItems";
+import { IndianRupee } from "lucide-react";
 
 const TableItems = ({ invoices }) => {
   return (
@@ -22,7 +23,10 @@ const TableItems = ({ invoices }) => {
               <td>{invoice.name}</td>
               <td>{invoice.email}</td>
               <td>{invoice.status}</td>
-              <td>{invoice.amount}</td>
+              <td className="flex items-center flex-row">
+                <IndianRupee size={12} />
+                {invoice.amount}
+              </td>
               <td>
                 <ActionItems invoice={invoice} />
               </td>

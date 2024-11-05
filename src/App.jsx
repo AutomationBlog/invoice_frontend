@@ -9,15 +9,16 @@ import PropTypes from "prop-types";
 import Payment from "./pages/Payment.jsx";
 
 function App() {
+  const userAuth = authUser();
   const ProtectedRoute = ({ children }) => {
-    if (!authUser()) {
+    if (!userAuth) {
       return <Navigate to="/login" replace />;
     }
     return children;
   };
 
   const AuthenticatedUser = ({ children }) => {
-    if (authUser()) {
+    if (userAuth) {
       return <Navigate to="/dashboard" replace />;
     }
     return children;
@@ -29,7 +30,7 @@ function App() {
         exact
         element={
           <AuthenticatedUser>
-            <Home value={authUser()} />
+            <Home value={userAuth} />
           </AuthenticatedUser>
         }
       />
@@ -56,7 +57,7 @@ function App() {
         exact
         element={
           <ProtectedRoute>
-            <Dashboard value={authUser()} />
+            <Dashboard value={userAuth} />
           </ProtectedRoute>
         }
       />

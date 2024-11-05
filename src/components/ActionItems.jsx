@@ -28,8 +28,21 @@ const ActionItems = ({ invoice }) => {
     alert("Edit Invoice");
   };
 
-  const handleDeleteInvoice = () => {
-    alert("Delete Invoice");
+  const handleDeleteInvoice = async () => {
+    try {
+      await axiosInstance
+        .delete(`/api/invoice/delete-invoice/${invoice.invoiceId}`)
+        .then((res) => {
+          if (res.data.success) {
+            alert("Invoice deleted successfully");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
