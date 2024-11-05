@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import ActionItems from "./ActionItems";
 
 const TableItems = ({ invoices }) => {
   return (
@@ -22,7 +23,9 @@ const TableItems = ({ invoices }) => {
               <td>{invoice.email}</td>
               <td>{invoice.status}</td>
               <td>{invoice.amount}</td>
-              <td>Action</td>
+              <td>
+                <ActionItems invoice={invoice} />
+              </td>
             </tr>
           ))}
         </tbody>

@@ -6,6 +6,7 @@ import LogIn from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import authUser from "./utils/authUser.js";
 import PropTypes from "prop-types";
+import Payment from "./pages/Payment.jsx";
 
 function App() {
   const ProtectedRoute = ({ children }) => {
@@ -59,6 +60,7 @@ function App() {
           </ProtectedRoute>
         }
       />
+      <Route path="/payment/:paymentToken" exact element={<Payment />} />
     </Routes>
   );
 
