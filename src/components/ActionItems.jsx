@@ -51,10 +51,10 @@ const ActionItems = ({ invoice }) => {
         className="w-6 h-6 cursor-pointer text-accent"
         onClick={handleSendEmail}
       />
-      <FilePenLine
+      {/* <FilePenLine
         className="w-6 h-6 cursor-pointer text-info"
         onClick={handleEditInvoice}
-      />
+      /> */}
       <FileX
         className="w-6 h-6 cursor-pointer text-error"
         onClick={handleDeleteInvoice}

@@ -3,9 +3,8 @@ import AddInvoice from "../components/AddInvoice";
 import TableItems from "../components/TableItems";
 import { axiosInstance } from "../utils/axiosInstance";
 import Navbar from "../components/Navbar";
-import PropTypes from "prop-types";
 
-const Dashboard = ({ value }) => {
+const Dashboard = () => {
   const [isInvoiced, setIsInvoiced] = useState(false);
 
   const [invoices, setInvoices] = useState([]);
@@ -27,7 +26,7 @@ const Dashboard = ({ value }) => {
 
   return (
     <>
-      <Navbar value={value} />
+      <Navbar />
       <div
         id="dashboard-container"
         className="container mx-auto my-10 h-auto w-auto"
@@ -54,7 +53,3 @@ const Dashboard = ({ value }) => {
 };
 
 export default Dashboard;
-
-Dashboard.propTypes = {
-  value: PropTypes.boolean,
-};

@@ -2,10 +2,10 @@ import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
 import Navbar from "../components/Navbar";
 
-const Home = ({ value }) => {
+const Home = () => {
   return (
     <div>
-      <Navbar value={value} />
+      <Navbar />
       <HeroSection />
       <Footer />
     </div>

@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 
 import UserProfile from "./UserProfile";
 import HomeLogo from "./HomeLogo";
+import authUser from "../utils/authUser";
 
-const Navbar = ({ value }) => {
+const Navbar = () => {
+  let value = authUser();
   return (
     <div className="navbar bg-base-100 container mx-auto">
       <div className="navbar bg-base-100">

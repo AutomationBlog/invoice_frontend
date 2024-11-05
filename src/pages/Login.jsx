@@ -21,7 +21,8 @@ const Login = () => {
       });
       if (response.data.success) {
         localStorage.setItem("token", response.data.token);
-        navigate("/dashboard");
+        window.location.href = "/dashboard";
+        // navigate("/dashboard");
       } else {
         alert(response.data.message);
         navigate("/");
