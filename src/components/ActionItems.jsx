@@ -35,6 +35,7 @@ const ActionItems = ({ invoice }) => {
         .then((res) => {
           if (res.data.success) {
             alert("Invoice deleted successfully");
+            window.location.reload();
           }
         })
         .catch((err) => {
