@@ -24,9 +24,9 @@ const ActionItems = ({ invoice }) => {
     }
   };
 
-  const handleEditInvoice = () => {
-    alert("Edit Invoice");
-  };
+  // const handleEditInvoice = () => {
+  //   alert("Edit Invoice");
+  // };
 
   const handleDeleteInvoice = async () => {
     try {
