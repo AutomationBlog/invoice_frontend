@@ -1,6 +1,8 @@
 # Invoice App
 
-Invoice App is an invoice management system. It allows users to create and view their invoices. The app is built using React and Node.js. The backend is built using Express and MongoDB. The frontend is built using React and TailwindCSS.
+Invoice App is an invoice management system. It allows users to create and view their invoices. The app is built using React and Node.js.
+
+Payment using Razorpay. payment link is sent to user's email. User can click on payment link to pay invoice. Payment link is valid for 5 minutes.
 
 ## Links
 
@@ -18,7 +20,8 @@ First start the backend API and then start the frontend app.
 ## .env
 
     VITE_WIP=false
-    VITE_BACKEND_URL=<https://invoice-backend-qb1h.onrender.com>
+    VITE_RAZORPAY_KEY_ID=
+    VITE_BACKEND_URL=<https://invoice-backend-ruln.onrender.com/>
     VITE_BACKEND_URL_LOCAL=<http://localhost:5000>
     VITE_isLOCAL=true
 
