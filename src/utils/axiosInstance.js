@@ -8,6 +8,11 @@ export const axiosInstance = axios.create({
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    "Access-Control-Allow-Headers":
+      "Content-Type, Authorization, Origin, X-Requested-With, Accept",
+    "Access-Control-Allow-Credentials": "true",
   },
 });
 
