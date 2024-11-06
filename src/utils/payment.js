@@ -1,35 +1,39 @@
 import { axiosInstance } from "./axiosInstance";
 
 export const razorpayPayment = async (data) => {
-  //   console.log(data);
-  const response = await axiosInstance.post(
-    "/api/payment/create-payment",
-    data
-  );
-  //   console.log(response.data);
+  const response = await axiosInstance.post("/api/payment/create-payment", {
+    amount: data.amount,
+  });
   var options = {
     key: import.meta.env.VITE_RAZORPAY_KEY_ID,
     amount: response.data.order.amount,
     currency: "INR",
-    name: "Gas Booking",
-    description: "Gas Booking Payment",
-    image: "https://example.com/gas.png",
+    name: "Service Invoice",
+    description: "Service Invoice Payment",
+    image: "",
     order_id: response.data.id,
-    handler: function (response) {
-      alert(response.razorpay_payment_id);
-      //   alert(response.razorpay_order_id);
-      //   alert(response.razorpay_signature);
-      handledAPIPatch("/booking/" + bookingid, {
-        paymentid: response.razorpay_payment_id,
-        status: "Paid",
-      }).then((response) => {
-        console.log(response);
-      });
+    handler: async function (response) {
+      if (response.razorpay_payment_id) {
+        await axiosInstance
+          .patch("/api/invoice/update-payment/" + data.invoiceId, {
+            paymentId: response.razorpay_payment_id,
+            status: "Paid",
+          })
+          .then((response) => {
+            if (response.data.success) {
+              alert("Payment successful");
+              window.location.href = "/";
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     },
     prefill: {
-      name: name,
-      email: email,
-      contact: phone,
+      name: data.name || "",
+      email: data.email || "",
+      contact: data.phone || "9876543210",
     },
     notes: {
       address: "Razorpay Corporate Office",

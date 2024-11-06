@@ -14,7 +14,6 @@ const Payment = () => {
   }, [paymentToken]);
 
   const getInvoice = async () => {
-    console.log(paymentToken);
     try {
       const response = await axiosInstance.get(
         "/api/invoice/get-invoice/" + paymentToken
@@ -30,7 +29,7 @@ const Payment = () => {
   };
   const handlePayment = () => {
     // Handle payment logic here
-    razorpayPayment();
+    razorpayPayment(invoice);
   };
 
   return (
